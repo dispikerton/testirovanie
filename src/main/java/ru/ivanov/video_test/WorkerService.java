@@ -18,4 +18,11 @@ public class WorkerService {
       .mapToInt(Worker::getSalary)
       .sum();
   }
+
+  public void hire(Worker worker) {
+    if (worker.getSalary() < 16_242){
+      throw new TooLowSalaryException();
+    }
+    workerRepository.saveWorker(worker);
+  }
 }

@@ -3,6 +3,8 @@ package ru.ivanov.video_test;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +18,10 @@ public class WorkerController {
   @GetMapping("/salary-sum")
   public int getSumOfSalariesOfAllWorkers() {
     return workerService.getSumOfSalariesOfAllWorkers();
+  }
+
+  @PostMapping("/hire")
+  public void hire(@RequestBody Worker worker) {
+    workerService.hire(worker);
   }
 }
