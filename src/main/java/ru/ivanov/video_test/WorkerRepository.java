@@ -44,18 +44,4 @@ public class WorkerRepository {
       .addValue("salary", worker.getSalary());
     jdbcTemplate.update(sql, params);
   }
-
-  public void delete(long id) {
-    String sql = "DELETE FROM worker WHERE id = :id";
-    SqlParameterSource params = new MapSqlParameterSource().addValue("id", id);
-    jdbcTemplate.update(sql, params);
-  }
-
-  public boolean existsById(long id) {
-    String sql = "SELECT COUNT(*) FROM worker WHERE id = :id";
-    SqlParameterSource params = new MapSqlParameterSource().addValue("id", id);
-
-    Integer count = jdbcTemplate.queryForObject(sql, params, Integer.class);
-    return count != null && count > 0;
-  }
 }

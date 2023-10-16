@@ -38,11 +38,4 @@ public class WorkerService {
     existingWorker.setSalary(updatedWorker.getSalary());
     workerRepository.update(existingWorker);
   }
-
-  public void removeWorker(long id) {
-    if (!workerRepository.existsById(id)) {
-      throw new WorkerNotFoundException("Worker not found");
-    }
-    workerRepository.delete(id);
-  }
 }
